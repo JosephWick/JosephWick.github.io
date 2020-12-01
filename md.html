@@ -10,6 +10,11 @@
   <body>
     <p> Hello, and welcome to the internet's premier location for web-based medical information. </p>
     
+    <p>
+      <textarea> id = "inputField"
+                  rows = "3"
+        cols = "50"input symptons</textarea>
+    
     <button onclick="symptomFunc()">Submit</button>
     
     <p> Your diagnosis is: </p>
@@ -19,7 +24,7 @@
     
     
     
-    <p> build: 3 </p>
+    <p> build: 4 </p>
     
   </body>
 </html>
@@ -32,7 +37,8 @@
   document.getElementById("d").innerHTML = "_"
   
   function symptomFunc() {
-    document.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)]
+    document.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)];
+    document.getElementById("inputField").value = '';
   }
   
 </script>
