@@ -3,10 +3,30 @@
   <head>
     <title>FishMD</title>
     <meta charset="UTF-8">
-    <meta name="description" content="The premier location for web-based medical information.">.
+    <meta name="description" content="The premier location for web-based medical information.">
     <meta name="author" content="Joseph M Wick"
   </head>
   
   <body>
-    <b> hey there </b>
+    Hello, and welcome to the internet's premier location for web-based medical information.
+    
+    <button onclick="symptomFunc()">Submit</button>
+    
+    <p> Your diagnosis is: </p>
+    <p id="d"></p>
+    
+    
   </body>
+</html>
+  
+<script>
+  
+  const list = ["you're dead", "cancer", "idk man"]
+  
+  symptomFunc()
+  
+  function symptomFunc() {
+    docyment.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)]
+  }
+  
+</script>
