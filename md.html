@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="The premier location for web-based medical information.">
     <meta name="author" content="Joseph M Wick">
-  
+
     <style type ="text/css" >
       .footer{
         position: fixed;
@@ -14,12 +14,12 @@
         width: 100%;
       }
     </style>
-  
+
   </head>
-  
+
   <body>
     <p> Hello, and welcome to FishMD, the internet's premier location for web-based medical information. </p>
-    
+
     <p>
       <textarea id = "inputField"
                   rows = "3"
@@ -27,28 +27,28 @@
     <p>
       <button onclick="symptomFunc()">Submit</button>
     </p>
-      
+
     <p> Your diagnosis is: </p>
     <p id="d"></p>
-    
-    
-    
-    
+
+
+
+
     <div class = "footer"> build: 10 </div>
-    
+
   </body>
 </html>
-  
+
 <script>
-  
-  const list = ["you're dead", "Ass Cancer", "idk man, that seems worthy of a real doctor", "Claustrophobia"]
-  
+
+  const list = ["You're dead", "Ass Cancer", "idk man, that seems worthy of a real doctor", "Claustrophobia", "Left-Adjacent Ass Cancer"]
+
   symptomFunc()
   document.getElementById("d").innerHTML = ""
-  
+
   function symptomFunc() {
     document.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)];
     document.getElementById("inputField").value = '';
   }
-  
+
 </script>
