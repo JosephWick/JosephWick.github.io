@@ -14,9 +14,10 @@
       <textarea id = "inputField"
                   rows = "3"
         cols = "50">input symptons</textarea>
-    
-    <button onclick="symptomFunc()">Submit</button>
-    
+    <p>
+      <button onclick="symptomFunc()">Submit</button>
+    </p>
+      
     <p> Your diagnosis is: </p>
     <p id="d"></p>
     
@@ -24,17 +25,17 @@
     
     
     
-    <p> build: 5 </p>
+    <p> build: 6 </p>
     
   </body>
 </html>
   
 <script>
   
-  const list = ["you're dead", "cancer", "idk man"]
+  const list = ["you're dead", "Ass Cancer", "idk man, that seems worthy of a real doctor", "Claustrophobia"]
   
   symptomFunc()
-  document.getElementById("d").innerHTML = "_"
+  document.getElementById("d").innerHTML = ""
   
   function symptomFunc() {
     document.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)];
