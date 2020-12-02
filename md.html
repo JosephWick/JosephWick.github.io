@@ -65,7 +65,7 @@
 
 
 
-    <div class = "footer"> build: 26 </div>
+    <div class = "footer"> build: 27 </div>
 
   </body>
 </html>
@@ -89,6 +89,8 @@
   function symptomFunc() {
     if (document.getElementById("pelvis").checked === true) {
       document.getElementById("d").innerHTML = "Ass Cancer"
+    }else if (document.getElementById("pelvis").checked===true && document.getElementById("leg").checked===true) {
+      document.getElementById("d").innerHTML = "Ass Adjacent Cancer"
     }else{
       document.getElementById("d").innerHTML = list[Math.floor(Math.random() * list.length)];
     }
