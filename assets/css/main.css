@@ -18,11 +18,12 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	max-width: 1000px;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
