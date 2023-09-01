@@ -17,11 +17,21 @@
     <button type="button" onclick="shuffle()">Shuffle</button>
     <button type="button" onclick="addcrit()">Add Crit</button>
     <button type="button" onclick="init()">Reset Deck</button>
+    </center>
+
+    <p>Deck size:</p><p id="decksize">20</p>
+    <p>Cards Drawn:</p><p id="cardsdrawn">0</p>
+    <p>Cards Remaining:</p><p id="cardsremaining">20</p>
+    <p>Crits Added:</p><p id="critsadded">0</p>
 
     <script>
       const defaultcards = [0,0,0,0,0,0, 1,1,1,1,1, 2,2,2,2,2, 3, 4, 5, 6];
       let allcards = [];
       let currcards = [];
+
+      let decksize = 20;
+      let drawncards = 0;
+      let addedCrits = 0;
 
       function init(){
         allcards = [...defaultcards];
@@ -30,6 +40,11 @@
 
       function draw(){
         const cardDisplayTexts = ["+0", "+1", "-1", "+2", "-2", "2x", "miss"]
+
+        // update deck vars
+        drawncards = drawncards+1;
+        cardsremaining = cardsremaining-1;
+        updateDisplay();
 
         // get random card from remaining cards
         let max = currcards.length;
@@ -41,14 +56,45 @@
         // display card
         const element = document.getElementById("carddrawn")
         element.innerHTML = cardDisplayTexts[card]
+
+        // shuffle on a crit or miss
+        if (card === 5){
+          shuffle()
+        }
+        if (card == 6){
+          shuffle()
+        }
+
       }
 
       function shuffle(){
         currcards = [...allcards]
+
+        drawncards = 0;
+        updateDisplay();
+
       }
 
       function addcrit(){
         allcards.push(5)
+        decksize = decksize+1;
+        addedCrits = addedCrits+1;
+
+        updateDisplay();
+      }
+
+      function updateDisplay(){
+        let element = document.getElementById("decksize");
+        element.innerHTML = decksize;
+
+        element = document.getElementById("cardsdrawn");
+        element.innerHTML = drawncards;
+
+        element = document.getElementById("cardsremaining");
+        element.innerHTML = decksize-cardsdrawn;
+
+        element = document.getElementById("critsadded");
+        element.innerHTML = addedCrits;
       }
 
     </script>
