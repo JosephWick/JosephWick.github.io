@@ -16,25 +16,25 @@
     <button type="button" onclick="init()">Reset Deck</button>
 
     <script type="text/javascript">
-      const defaultcards = [0,0,0,0,0,0, 1,1,1,1,1, 2,2,2,2,2, 3, 4, 5, 6]
-      var allcards = []
-      var currcards = []
+      const defaultcards = [0,0,0,0,0,0, 1,1,1,1,1, 2,2,2,2,2, 3, 4, 5, 6];
+      var allcards = [];
+      var currcards = [];
 
       function init(){
-        allcards = [...defaultcards]
-        currcards = [..defaultcards]
+        allcards = [...defaultcards];
+        currcards = [..defaultcards];
       }
 
       function draw(){
         // get random card from remaining cards
-        max = currcards.length
-        let i = Math.floor(Math.random() * (max - 0) + 0)
+        let max = currcards.length;
+        let i = Math.floor(Math.random() * (max - 0) + 0);
 
-        card = currcards[i]
-        currcards.splice(i,1)
+        card = currcards[i];
+        currcards.splice(i,1);
 
         // display card
-        console.log(card)
+        console.log(card);
       }
 
       function shuffle(){
