@@ -7,9 +7,12 @@
   </head>
   <body onload="javascript:init()">
 
-    <h1><center>Gloomhaven Battle Deck</center></h1>
-    <p><center>an umodified battle deck</center></p>
-
+    <center>
+    <h1>Gloomhaven Battle Deck</h1>
+    <p>an umodified battle deck</p>
+    <br>
+    <p id="carddrawn"> card will appear here </p>
+    <br>
     <button type="button" onclick="draw()">Draw</button>
     <button type="button" onclick="shuffle()">Shuffle</button>
     <button type="button" onclick="addcrit()">Add Crit</button>
@@ -26,6 +29,8 @@
       }
 
       function draw(){
+        const cardDisplayTexts = ["+0", "+1", "-1", "+2", "-2", "2x" "miss"]
+
         // get random card from remaining cards
         let max = currcards.length;
         let i = Math.floor(Math.random() * (max - 0) + 0);
@@ -34,7 +39,8 @@
         currcards.splice(i,1);
 
         // display card
-        console.log(card);
+        const element = document.getElementById("carddrawn")
+        element.innerHTML = cardDisplayTexts[card]
       }
 
       function shuffle(){
