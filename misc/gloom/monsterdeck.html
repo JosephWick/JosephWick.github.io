@@ -36,6 +36,11 @@
       function init(){
         allcards = [...defaultcards];
         currcards = [...defaultcards];
+
+        decksize = 20;
+        drawncards = 0;
+        addedCrits = 0;
+        updateDisplay();
       }
 
       function draw(){
@@ -75,12 +80,13 @@
 
       }
 
+      // addcrit()
       function addcrit(){
         allcards.push(5)
         decksize = decksize+1;
         addedCrits = addedCrits+1;
 
-        updateDisplay();
+        shuffle();
       }
 
       function updateDisplay(){
@@ -91,7 +97,7 @@
         element.innerHTML = drawncards;
 
         element = document.getElementById("cardsremaining");
-        element.innerHTML = decksize-cardsdrawn;
+        element.innerHTML = decksize-drawncards;
 
         element = document.getElementById("critsadded");
         element.innerHTML = addedCrits;
