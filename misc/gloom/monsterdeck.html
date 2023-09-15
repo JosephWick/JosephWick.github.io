@@ -11,10 +11,11 @@
     <h1>Gloomhaven Battle Deck</h1>
     <p>an umodified battle deck</p>
     <br>
-    <p id="carddrawn"> card will appear here </p>
+    <img id="carddrawn" src="cardimages/cardback.png" style="width:200px">
+    <br>
     <br>
     <button type="button" onclick="draw()">Draw</button>
-    <button type="button" onclick="shuffle()">Shuffle</button>
+    <button type="button" onclick="shuffle_button()">Shuffle</button>
     <button type="button" onclick="addcrit()">Add Crit</button>
     <button type="button" onclick="init()">Reset Deck</button>
     </center>
@@ -41,6 +42,9 @@
         drawncards = 0;
         addedCrits = 0;
         updateDisplay();
+
+        const element = document.getElementById("carddrawn")
+        element.src = "cardimages/cardback.png"
       }
 
       function draw(){
@@ -60,7 +64,8 @@
 
         // display card
         const element = document.getElementById("carddrawn")
-        element.innerHTML = cardDisplayTexts[card]
+        element.src = "cardimages/"+cardDisplayTexts[i]+".png"
+        element.alt = cardDisplayTexts[i]
 
         // shuffle on a crit or miss
         if (card === 5){
@@ -72,12 +77,21 @@
 
       }
 
+      // shuffle()
       function shuffle(){
         currcards = [...allcards]
 
         drawncards = 0;
         updateDisplay();
 
+      }
+
+      // shuffle_button()
+      function shuffle_button(){
+        shuffle()
+
+        const element = document.getElementById("carddrawn")
+        element.src = "cardimages/cardback.png"
       }
 
       // addcrit()
