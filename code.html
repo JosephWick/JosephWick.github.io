@@ -17,41 +17,74 @@
         <div class="inner">
           <h1>Code</h1>
           <p>
-            Here, I run through a couple of coding projects I have done that
-            I think are cool.
+
           </p>
 
           <div class="index align-left">
 
             <!-- Text -->
+            <section>
+              <header>
+                <h3>Phase Space Reconstruction</h3>
+              </header>
+              <div class="content">
+                <p>
+                  During my graduate course in dynamical systems, I explored the Takens
+                  theory of phase space reconstruction. Takens (1981) outlines a
+                  method for determining whether or not a set of data can be attributed
+                  to a strange attractor. By time sampling the data, one can create a
+                  phase space diagram that, for systems governed by a strange attractor,
+                  forms a distinctive torus like shape. With proper selection of the
+                  number of dimensions and time sampling interval, this method works even
+                  for noisy systems.
+                </p>
+                <img src="images/coding/phaseSpace_simple.png"
+                     alt="A simple phase space reconstruction"
+                     style="width:500px"
+                >
+                <p>
+                  Above is a simple phase space reconstruction for a nonchaotic system.
+                  The Takens reconstruction method also works for complicated systems, see
+                  below.
+                </p>
+                <img src="images/coding/phaseSpace_nbody.png"
+                     alt="Phase space reconstruction of a noisy, n-body system"
+                     style="width:500px"
+                >
+                <p>
+                  Above we have the phase space reconstruction of an N-body system
+                  made up of two "stars," heavier objects, and one "planet," a lighter
+                  object. After simulation, gaussian noise was added to the data. Again,
+                  the Takens reconstruction produces an open shape, but due to the
+                  complexity of the system and added noise, this shape is not as perfectly
+                  circular as with the simpler system.
+
+              </div>
+            </section>
               <section>
                 <header>
                   <h3>n-body Simulation</h3>
                 </header>
                 <div class="content">
                   <p>
-                    I made a simple n-body simulation in python for an undergraduate
+                    I made a simple n-body simulation in python for a
                     computational physics course at UCSC. The goal of my project
                     was to explore the stability of eccentric orbits around a
                     stable stellar binary, as a function of the semi major axis
-                    and eccentricity of the planet's orbit.
+                    and eccentricity of the planet's orbit. Given that the simulation
+                    is coded in Python, it is pretty slow, but provided some nice insight
+                    and was useful in the above Takens reconstruction project. Below is
+                    an image demonstrating the stability (or lack thereof) of a planet
+                    orbitting a binary at different starting locations.
                   </p>
+                  <img src="images/coding/nbody_4panel.png"
+                       alt="Output of my n-body simulation code"
+                       style="width:500px"
+                  >
 
                 </div>
               </section>
-              <section>
-                <header>
-                  <h3>Phase Space Reconstruction</h3>
-                </header>
-                <div class="content">
-                  <p>
-                    For a grad course in dynamical systems, I made some jupyter
-                    notebooks exploring the Takens theory of phase space
-                    reconstruction.
-                  </p>
 
-                </div>
-              </section>
               <section>
                 <header>
                   <h3>Viscoelastic SEAS </h3>
@@ -61,8 +94,14 @@
                     As part of my work at the Southern California Earthquake
                     Center, I implemented hierarchical matrices into a simulation
                     of earthquakes and aseismic slip (SEAS) that included off-
-                    fault viscoelastic effects.
+                    fault viscoelastic effects. Hierarchical matrices provide an
+                    approximation to a matrix vector product, reducing computation
+                    time from O(n^2) to O(nlogn).
                   </p>
+                  <img src="images/coding/seasScaling.png"
+                       alt="Matrix vector product scaling"
+                       style="width:500px"
+                  >
 
                 </div>
               </section>
