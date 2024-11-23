@@ -61,6 +61,33 @@
 
               </div>
             </section>
+
+            <section>
+              <header>
+                <h3>Viscoelastic SEAS </h3>
+              </header>
+              <div class="content">
+                <p>
+                  As part of my work at the Southern California Earthquake
+                  Center, I implemented hierarchical matrices into a simulation
+                  of earthquakes and aseismic slip (SEAS) that included off-
+                  fault viscoelastic effects. Hierarchical matrices provide an
+                  approximation to a matrix vector product, reducing computation
+                  time from O(n^2) to O(nlogn).
+                </p>
+                <img src="images/coding/seasScaling.png"
+                     alt="Matrix vector product scaling"
+                     style="width:500px"
+                >
+                <p>
+                  In this project, hierarchical matrices were implemented using
+                  Michael Bradley's code
+                  <a href="https://github.com/ambrad/dc3dm/tree/main">dc3dm</a>
+                  which allowed the interfacing of Matlab and C++.
+
+              </div>
+            </section>
+
               <section>
                 <header>
                   <h3>n-body Simulation</h3>
@@ -79,27 +106,6 @@
                   </p>
                   <img src="images/coding/nbody_4panel.png"
                        alt="Output of my n-body simulation code"
-                       style="width:500px"
-                  >
-
-                </div>
-              </section>
-
-              <section>
-                <header>
-                  <h3>Viscoelastic SEAS </h3>
-                </header>
-                <div class="content">
-                  <p>
-                    As part of my work at the Southern California Earthquake
-                    Center, I implemented hierarchical matrices into a simulation
-                    of earthquakes and aseismic slip (SEAS) that included off-
-                    fault viscoelastic effects. Hierarchical matrices provide an
-                    approximation to a matrix vector product, reducing computation
-                    time from O(n^2) to O(nlogn).
-                  </p>
-                  <img src="images/coding/seasScaling.png"
-                       alt="Matrix vector product scaling"
                        style="width:500px"
                   >
 
