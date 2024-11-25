@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Joseph Wick at Argonne</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css"/></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper" class="divided">
+
+      <section class="wrapper style1 align-left">
+        <div class="inner">
+          <h1>HPC for Cosmological Summary Stats</h1>
+          <p>
+
+          </p>
+
+          <div class="index align-left">
+
+            <!-- Text -->
+            <section>
+              <header>
+                <h3>Runtime Optimization</h3>
+              </header>
+              <div class="content">
+                <p>
+                  One of my primary goals at Argonne National Lab was to effectively
+                  scale GPU enabled MPI code on the lab's supercomputers. I worked
+                  primarily on two machines: Polaris, a petascale NVIDIA machine; and
+                  Aurora, an in-development exascale machine with Intel hardware.
+                  Our code uses Python APIs to call CUDA and SYCL kernels.
+                  <br><br>
+                  Our code has an MPI driver that is hardware agnostic,
+                  and uses different kernel methods for each backend. Maintaining
+                  this modularity was often challenging as the Python HPC
+                  libraries are very much still in development, and the limited
+                  availability of CPU simulators for all hardware backends
+                  required attention to detail with our CI testing.
+                  <br><br>
+                  In order to achieve good scaling I minimized the amount of data
+                  transfer between the GPU and CPU, and manually divided the work
+                  assigned to each MPI rank among several GPUs. Using Python allowed
+                  for relatively quick development and easy integration with the
+                  scientific modeling work being done by my theoretical physicist
+                  coworkers, but had the downside of severe overheads for more than
+                  about 10,000 MPI ranks. Assigning multiple GPUs to each MPI rank
+                  was key to accessing the full power of the lab super computers.
+                  <br><br>
+                  The below figure illustrates strong scaling performance on
+                  2100 nodes of Aurora, equalling 4200 MPI ranks and 12,600 GPUs.
+                  This work was done on a pre-production supercomputer with early
+                  versions of the Aurora software development kit. Given the
+                  strong scaling performance our code demonstates, the team will
+                  be able to receive an early science allocation for compute time
+                  in the near future.
+                </p>
+                <img src="../images/projectGallery/argonne/aurora_strong_444.png"
+                     alt="Strong Scaling on Aurora"
+                     style="width:500px"
+                >
+              </div>
+            </section>
+
+            <section>
+              <header>
+                <h3>Model Optimization and Inference</h3>
+              </header>
+              <div class="content">
+                <p>
+                  My other primary task while working at Argonne was the developing
+                  tools for the optimization and inference of a fully differentiable
+                  model of the galaxy halo conenction. The model takes as inputs the
+                  locations and characteristics -- including mass, infall time,
+                  and velocity -- of simulated dark matter halos and assigns each
+                  a stellar mass PDF. Using the highly scalable summary statistic code
+                  outlined above, this project focused primarily on the two point
+                  correlation function, we can then generate a prediction to compare
+                  to observed data. From there, optimization is fairly straightforward,
+                  and made easier by the presence of analytic gradients as the model
+                  is entirely coded in JAX.
+                  <br><br>
+                  Using JAX, I
+                  implemented a version of the Adam algorithm for gradient descent
+                  that wrapped around the GPU summary statistic code outlined above.
+                  I also implemented a Hamiltonian Monte Carlo tool using JAX and
+                  NumPyro that explores the model's parameter space.
+                  The below figure illustrates a demo run of the HMC pipeline, ran
+                  on Argonne's Polaris supercomputer. Having performative kernels
+                  to compute summary statistic predictions is crucial for the
+                  optimization and inference steps to be computationally feasable,
+                  especially for simulations with large volumes and high resolution.
+                </p>
+                <img src="../images/projectGallery/argonne/corner_hmc_self_10pct.png"
+                     alt="Matrix vector product scaling"
+                     style="width:500px"
+                >
+              </div>
+            </section>
+
+            <!-- end align left -->
+            </div>
+
+
+      <!-- Footer -->
+        <footer class="wrapper style1 align-center">
+          <div class="inner">
+            <ul class="icons">
+              <li><a href="https://www.linkedin.com/in/josephwick/"
+                class="icon brands style2 fa-linkedin"><span
+                class="label">LinkedIn</span></a></li>
+              <li><a href="https://www.github.com/josephwick"
+                class="icon brands style2 fa-github"><span
+                class="label">Email</span></a></li>
+              <li><a href="mailto:joseph@josephwick.co"
+                class="icon style2 fa-envelope"><span
+                class="label">Email</span></a></li>
+            </ul>
+            <p>&copy; Joseph Wick. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+          </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+  </body>
+</html>
