@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Dynamical Systems Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css"/></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper" class="divided">
+
+      <section class="wrapper style1 align-left">
+        <div class="inner">
+          <h1>Dynamical Systems</h1>
+          <p>
+
+          </p>
+
+          <div class="index align-left">
+
+            <!-- Text -->
+            <section>
+              <header>
+                <h3>N-Body Simulation</h3>
+              </header>
+              <div class="content">
+                <p>
+                  For a class in computational physics that I took as an undergrad
+                  at UC Santa Cruz, I made an n-body simulation in Python. Given
+                  that the project is coded in Python, it runs rather slowly but
+                  allowed me to explore the stability of a planet around a binary
+                  star system, and was useful later in my graduate class on
+                  dynamical systems. The below figure illustrates how a slight
+                  variation in the planet's starting position can impact the
+                  stability of it's orbit.
+                </p>
+                <img src="../images/projectGallery/dynamical/nbody_4panel.png"
+                     alt="An n-body simulation run"
+                     style="width:500px"
+                >
+                <p>
+                  For my undergraduate class, I further explored how the distance
+                  of the planet from the binary impacted orbit stability, but that
+                  is less relevant for the discussion of phase spaces.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <header>
+                <h3>Phase Space Reconstruction</h3>
+              </header>
+              <div class="content">
+                <p>
+                  During my graduate coursework at UC Santa Cruz I took a course
+                  in dynamical systems where I was assigned a project on phase space
+                  reconstruction. Takens (1981) outlines a method for determining
+                  whether or not a set of data can be attributed to a strange
+                  attractor. By time sampling the data, one can create a phase
+                  space diagram that, for systems governed by a strange attractor,
+                  forms a distinctive torus like shape. With proper selection of the
+                  number of dimensions and time sampling interval, this method
+                  works even for noisy systems.
+                  <br><br>
+                  The below figure demonstrates the Takens theory of phase space
+                  reconstruction for a non-chaotic system. The right panel depicts
+                  time-delayed samples of the equation plotted at left. We can see
+                  a structure form and, under Takens' theory, we can understand
+                  the open donut shape to indicate the presence of an attractor.
+                </p>
+                <img src="../images/projectGallery/dynamical/phaseSpace_simple.png"
+                     alt="A simple dynamical system"
+                     style="width:500px"
+                >
+                <p>
+                  What's remarkable about the Takens theory is that is also works
+                  for chaotic and noisy systems where it may be less obvious that an
+                  attractor is present. To demonstrate this, I took positions of
+                  the planet in my n-body simulation and applied Gaussian noise to
+                  them. The below figure illustates the 3 body system, one planet
+                  and two stars, in the left panel and the phase space reconstruction
+                  in the right panel. While the structure of the reconstruction is
+                  not as clean and open as the simpler system above, the clear
+                  structure and still somewhat present donut aspect indicate an
+                  attractor governs the system. Of course, given that this is
+                  a gravity simulation, we know that an attractor is indeed present.
+                </p>
+                <img src="../images/projectGallery/dynamical/phaseSpace_nbody.png"
+                     alt="A noisy, choatic system"
+                     style="width:500px"
+                >
+              </div>
+            </section>
+
+            <!-- end align left -->
+            </div>
+
+
+      <!-- Footer -->
+        <footer class="wrapper style1 align-center">
+          <div class="inner">
+            <ul class="icons">
+              <li><a href="https://www.linkedin.com/in/josephwick/"
+                class="icon brands style2 fa-linkedin"><span
+                class="label">LinkedIn</span></a></li>
+              <li><a href="https://www.github.com/josephwick"
+                class="icon brands style2 fa-github"><span
+                class="label">Email</span></a></li>
+              <li><a href="mailto:joseph@josephwick.co"
+                class="icon style2 fa-envelope"><span
+                class="label">Email</span></a></li>
+            </ul>
+            <p>&copy; Joseph Wick. Design:
+              <a href="https://html5up.net">HTML5 UP</a>.
+            </p>
+          </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+  </body>
+</html>
