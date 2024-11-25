@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Masters Thesis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css"/></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper" class="divided">
+
+      <section class="wrapper style1 align-left">
+        <div class="inner">
+          <h1>Computational Seismology</h1>
+          <p>
+
+          </p>
+
+          <div class="index align-left">
+
+            <!-- Text -->
+            <section>
+              <header>
+                <h3>Viscoelastic Simulations of Earthquakes and Aseismic Slip</h3>
+              </header>
+              <div class="content">
+                <p>
+                  I worked for several months as an intern at the Southern
+                  California Earthquake Center, working with Dr. Valère Lambert.
+                  My project involved the implmentation of hierarchical matrices
+                  into a long term earthquake simulation.
+                  <br><br>
+                  The accumulation of strain in off fault regions has implications
+                  for the frequency and power of earthquakes, thus is important to
+                  model if earthquake simulations are to serve as realistic
+                  predictors. Naturally, simulating an increased volume brings
+                  additional computational expense and can prove to be limiting.
+                  Hierarchical matrices offer a potential solution for simulations
+                  utilizing the boundary integral method, which loads strain onto
+                  simulated regions through a matrix-vector product. Hierarchical
+                  matrices maintain good accuracy of matrix vector products,
+                  especially for matrices with a strong diagonal, and can reduce
+                  the algorithmic runtime from O(n^2) to about O(nlogn).
+                  <br><br>
+                  In this project, hierarchical matrices were implemented using
+                  Michael Bradley's code
+                  <a href="https://github.com/ambrad/dc3dm/tree/main">dc3dm</a>
+                  which allowed the interfacing of Matlab and C++. The general
+                  simulation code, including the physical problem and IO, were
+                  handled in Matlab, with C++ kernels for the accumulation of
+                  strain and a C++ interface to handle the matrix vector products.
+                  The use of hierarchical matrices greatly improved the runtime
+                  and memory use of each matrix vector product, as we can see
+                  from the figure below.
+                </p>
+                <img src="../images/projectGallery/scec/seasScaling.png"
+                     alt="Testing for breathing mode signals in simulation"
+                     style="width:500px"
+                >
+                <p>
+                  Additionally, the accuracy of the simulation using hierarchical
+                  matrices was minimally affected.
+                </p>
+                <img src="../images/projectGallery/scec/strainBtwnRuptures.png"
+                     alt="Comparing Romulus and Keck data"
+                     style="width:500px"
+                >
+              </div>
+            </section>
+
+
+            <!-- end align left -->
+            </div>
+
+
+      <!-- Footer -->
+        <footer class="wrapper style1 align-center">
+          <div class="inner">
+            <ul class="icons">
+              <li><a href="https://www.linkedin.com/in/josephwick/"
+                class="icon brands style2 fa-linkedin"><span
+                class="label">LinkedIn</span></a></li>
+              <li><a href="https://www.github.com/josephwick"
+                class="icon brands style2 fa-github"><span
+                class="label">Email</span></a></li>
+              <li><a href="mailto:joseph@josephwick.co"
+                class="icon style2 fa-envelope"><span
+                class="label">Email</span></a></li>
+            </ul>
+            <p>&copy; Joseph Wick. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+          </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+  </body>
+</html>
